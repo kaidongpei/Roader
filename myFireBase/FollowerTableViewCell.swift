@@ -10,6 +10,10 @@ import UIKit
 
 class FollowerTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var userImag: UIImageView!
+    @IBOutlet weak var fname: UILabel!
+    @IBOutlet weak var email: UILabel!
+    @IBOutlet weak var bankB: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -10,6 +10,13 @@ import UIKit
 
 class PathListTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var pathDate: UILabel!
+    @IBOutlet weak var modeImage: UIImageView!
+    @IBOutlet weak var followerCount: UILabel!
+    
+    @IBOutlet weak var theButton: UIButton!
+    @IBOutlet weak var time: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,5 +27,13 @@ class PathListTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    @IBAction func myButton(_ sender: UIButton) {
+        
+        
+        
+    }
+    
+    
 
 }

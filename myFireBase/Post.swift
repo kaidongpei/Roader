@@ -7,3 +7,20 @@
 //
 
 import Foundation
+import CoreLocation
+import UIKit
+
+
+class Post {
+    var desc: String?
+    var lco: CLLocation?
+    var img: UIImage?
+    var category: String?
+    
+    init(de: String, lc: CLLocation, im: UIImage, cat: String){
+        desc = de
+        lco = lc
+        img = im
+        category = cat
+    }
+}

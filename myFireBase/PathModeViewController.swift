@@ -10,11 +10,12 @@ import UIKit
 import SWMessages
 
 protocol passInfo {
-    func passStr(mode: String, pOrP: String)
+    func passStr(mode: String, pOrP: String, pathN: String)
 }
 
-class pathModeViewController: UIViewController {
+class PathModeViewController: UIViewController {
     
+    @IBOutlet weak var pathName: UITextField!
     var pathMode: String?
     var publicOrPrivare: String?
     var path: Path?
@@ -34,17 +35,19 @@ class pathModeViewController: UIViewController {
     @IBAction func pathMode(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
         if sender.tag == 1{
-            pathMode = "easy"
+            pathMode = "EasyPathModeIconSec"
         } else if sender.tag == 2{
-            pathMode = "Med"
+            pathMode = "MediumPathModeIconSec"
         } else {
-            pathMode = "Hard"
+            pathMode = "HardPathmodeIconSec"
         }
         //Path.Diffculty(rawValue: pathMode!)
     }
     
     @IBAction func publicOrPrivate(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
         if sender.tag == 1{
+            
             publicOrPrivare = "Public"
         } else {
             publicOrPrivare = "Private"
@@ -55,12 +58,17 @@ class pathModeViewController: UIViewController {
     
     
     @IBAction func doneEdit(_ sender: Any) {
+        
+        if pathName.text?.count == 0{
+            SWMessage.sharedInstance.showNotificationWithTitle("Textfield cannot be empty", subtitle: "Alert", type: .error)
+        } else{
+        
         if pathMode?.count == 0 || publicOrPrivare?.count == 0 {
             SWMessage.sharedInstance.showNotificationWithTitle("Please choose path mode", subtitle: "Alert", type: .error)
             
         } else if pathMode?.count != 0 && publicOrPrivare?.count != 0{
-            delegate?.passStr(mode: pathMode!, pOrP: publicOrPrivare!)
-        }
+            delegate?.passStr(mode: pathMode!, pOrP: publicOrPrivare!, pathN: pathName.text!)
+            }}
     }
     
     /*
